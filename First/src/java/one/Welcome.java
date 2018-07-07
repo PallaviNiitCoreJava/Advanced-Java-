@@ -7,6 +7,9 @@ package one;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Scanner;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Welcome extends HttpServlet {
 
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -38,8 +42,16 @@ public class Welcome extends HttpServlet {
             out.println("<title>Servlet Welcome</title>");            
             out.println("</head>");
             out.println("<body>");
-            String name=request.getParameter("user");
-            out.println("<h1>Servlet Welcome "+name+" </h1>");
+            ServletContext context=getServletContext();
+            Scanner sc=new Scanner(System.in);
+            context.setAttribute("scan",sc);
+            String s=context.getInitParameter("song");
+            out.println("<h1>"+s+"</h1>");
+//            ServletConfig config=getServletConfig();
+//            String name=config.getInitParameter("wn");
+//            out.println("<h1>"+name+"</h1>");
+            //String name=request.getParameter("user");
+            //out.println("<h1>Servlet Welcome "+name+" </h1>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -42,18 +42,18 @@ public class CheckUser extends HttpServlet {
             String name=request.getParameter("user");
             out.println("<h1>Welcome to Servlet !</h1>");
             
-            response.sendRedirect("https://www.google.com/search?q="+name);
-//            
-//            if(name.equals("Pallavi"))
-//            {
-//                RequestDispatcher rd=request.getRequestDispatcher("Welcome");
-//                rd.forward(request, response);
-//            }
-//            else
-//            {
-//                RequestDispatcher rd=request.getRequestDispatcher("Error");
-//                rd.forward(request, response);
-//            }
+//            response.sendRedirect("https://www.google.com/search?q="+name);
+            
+            if(name.equals("Pallavi"))
+            {
+                RequestDispatcher rd=request.getRequestDispatcher("Welcome");
+                rd.forward(request, response);
+            }
+            else
+            {
+                RequestDispatcher rd=request.getRequestDispatcher("Error");
+                rd.forward(request, response);
+            }
             out.println("</body>");
             out.println("</html>");
         }

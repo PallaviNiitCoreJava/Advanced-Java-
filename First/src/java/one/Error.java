@@ -8,6 +8,7 @@ package one;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,8 +41,12 @@ public class Error extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Invalid username</h1>");
-                RequestDispatcher rd=request.getRequestDispatcher("index.html");
-                rd.include(request, response);
+            
+            ServletContext context=getServletContext();
+            String s=context.getInitParameter("val");
+            out.println("<h1>"+s+"</h1>");
+////                RequestDispatcher rd=request.getRequestDispatcher("index.html");
+////                rd.include(request, response);
             out.println("</body>");
             out.println("</html>");
         }

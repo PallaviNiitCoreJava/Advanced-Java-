@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>song</param-name>
+        <param-value>Old MacDonaled</param-value>
+    </context-param>
     <servlet>
         <servlet-name>CheckUser</servlet-name>
         <servlet-class>one.CheckUser</servlet-class>
@@ -7,15 +11,19 @@
     <servlet>
         <servlet-name>Welcome</servlet-name>
         <servlet-class>one.Welcome</servlet-class>
+        <init-param>
+            <param-name>cn</param-name>
+            <param-value>NIIT Pvt Ltd.</param-value>
+        </init-param>
+        <init-param>
+            <param-name>wn</param-name>
+            <param-value>Time Pass Web</param-value>
+        </init-param>
     </servlet>
     <servlet>
         <servlet-name>Error</servlet-name>
         <servlet-class>one.Error</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>CheckUser</servlet-name>
-        <url-pattern>/CheckUser</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Welcome</servlet-name>
         <url-pattern>/Welcome</url-pattern>
@@ -24,9 +32,15 @@
         <servlet-name>Error</servlet-name>
         <url-pattern>/Error</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckUser</servlet-name>
+        <url-pattern>/CheckUser</url-pattern>
+        <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>20</session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>Home.html</welcome-file>
+    </welcome-file-list>
 </web-app>
