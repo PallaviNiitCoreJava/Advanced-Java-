@@ -41,7 +41,7 @@ public class CheckOne extends HttpServlet {
             out.println("<h1>Servlet CheckOne at</h1>");
              String name=request.getParameter("user");
              
-            out.println("<Form action=\"HomePage\" method=\"get\">\n" +
+            out.println("<Form action=\"HomePage\" method=\"post\">\n" +
 "            <input type=\"hidden\" name=\"data\" value=\""+name+"\" />\n" +
 "            <input type=\"submit\" value=\"Home Page\"/>\n" +
 "        </Form>");

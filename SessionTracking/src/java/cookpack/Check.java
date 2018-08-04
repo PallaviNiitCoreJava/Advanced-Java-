@@ -43,8 +43,10 @@ public class Check extends HttpServlet {
             out.println("<h1>Servlet Check </h1>");
             
             String name=request.getParameter("user");
+            
             Cookie ck=new Cookie("user", name);
             ck.setMaxAge(3600);
+            
             response.addCookie(ck);
             
             out.println("<a href='Welcome'> Welcome</a>");

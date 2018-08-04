@@ -40,7 +40,7 @@ public class Login extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet Login </h1>");
              String name=request.getParameter("user");
-             out.println("<a href='Home?user="+name+"'> Welcome</a>");
+             out.println("<a href='Home?person="+name+"'> Welcome</a>");
             out.println("</body>");
             out.println("</html>");
         }
