@@ -7,6 +7,7 @@ package SessionExp;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,14 +37,26 @@ public class Inbox extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Inbox</title>");            
+            out.println("<title>Servlet Inbox</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Inbox </h1>");
-            HttpSession hs=request.getSession(false);
-            String nm=(String)hs.getAttribute("user");
-            out.println("Welcome "+nm);
-            out.println("<a href='Logout'> Logout</a>");
+            //out.println("<h1>Servlet Inbox </h1>");
+
+            HttpSession hs = request.getSession(false);
+
+            
+            if (!(hs == null)) {
+                UserDet us = (UserDet) hs.getAttribute("userOne");
+                out.println("<br>Welcome " + us.getUser());
+                out.println("<br>Address " + us.getAdd());
+                out.println("<br>Contact " + us.getContact()); 
+                out.println("<a href='Logout'> Logout</a>");
+            } else {
+                out.println("Please Login Frist ");
+                RequestDispatcher rd=request.getRequestDispatcher("index.html");
+                rd.include(request, response);
+            }
+           
             out.println("</body>");
             out.println("</html>");
         }

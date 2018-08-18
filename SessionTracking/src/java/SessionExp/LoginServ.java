@@ -41,8 +41,15 @@ public class LoginServ extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet LoginServ </h1>");
             String nm=request.getParameter("user");
+            String ad=request.getParameter("add");
+            String ct=request.getParameter("contact");
+            UserDet ud=new UserDet();
+            ud.setUser(nm);
+            ud.setAdd(ad);
+            ud.setContact(ct);
+            
             HttpSession hs=request.getSession(true);
-            hs.setAttribute("user", nm);
+            hs.setAttribute("userOne", ud);
             out.println("<a href='Inbox'> Welcome</a>");
 
             out.println("</body>");
